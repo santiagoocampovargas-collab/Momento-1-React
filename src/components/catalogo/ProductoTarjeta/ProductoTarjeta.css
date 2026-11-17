@@ -1,0 +1,64 @@
+.catalogo-vitrina {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.catalogo-producto-tarjeta {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--linea);
+  border-left: 5px solid var(--verde);
+  border-radius: 14px;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.catalogo-producto-tarjeta:hover {
+  transform: translateY(-3px);
+  border-color: var(--hoja);
+}
+
+.catalogo-producto-tarjeta-figura {
+  position: relative;
+  margin: 0;
+  background: var(--crema-2);
+}
+
+.catalogo-producto-tarjeta-imagen {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.catalogo-producto-tarjeta-categoria {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--verde-hondo);
+  color: var(--card);
+}
+
+.catalogo-producto-tarjeta-cuerpo {
+  padding: 1rem;
+}
+
+.catalogo-producto-tarjeta-nombre {
+  margin: 0 0 0.35rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
+  color: var(--tinta);
+}
+
+.catalogo-producto-tarjeta-marca {
+  margin: 0;
+  font-weight: 600;
+  color: var(--verde);
+}

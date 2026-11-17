@@ -1,13 +1,11 @@
-import React from 'react'
-
 const Footer = () => {
   return (
-    <footer>
+    <footer className="site-footer">
       <div className="contenedor">
-        <p>©️ {new Date().getFullYear()} Sazón. Todos los derechos reservados.</p>
+        <p>© 2026 Sazón · Recetario digital Grupo Nutresa</p>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

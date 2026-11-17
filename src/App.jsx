@@ -1,15 +1,15 @@
 import Header from "./components/layouts/Header/Header";
 import Footer from "./components/layouts/Footer/Footer";
-import Producto from "./components/pages/Producto/Producto";
+import Producto from "./pages/Producto/Producto";
 
-const App = () => {
-  return (
-    <>
-      <Header />
+const App = () => (
+  <>
+    <Header />
+    <main>
       <Producto />
-      <Footer />
-    </>
-  )
-}
+    </main>
+    <Footer />
+  </>
+);
 
-export default App
+export default App;

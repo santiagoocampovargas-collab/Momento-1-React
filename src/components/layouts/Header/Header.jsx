@@ -1,22 +1,18 @@
-import React from 'react'
-
-
-
 const Header = () => {
   return (
-    <header>
-      <div className="contenedor">
-        <h2>Sazón</h2>
-        <nav>
-          <ul>
-            
-              <li>opcion1</li>
-           
-          </ul>
+    <header className="topbar">
+      <div className="contenedor topbar-interno">
+        <a href="/" className="marca">
+          Sazón
+        </a>
+        <nav className="navegacion">
+          <a href="/" className="activo">
+            Catálogo
+          </a>
         </nav>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
