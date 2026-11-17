@@ -1,14 +1,22 @@
 import "./ProductoTarjeta.css";
 
 const ProductoTarjeta = ({ producto }) => {
-  const { nombre, marca, categoria, imagen } = producto;
+  const { id, nombre, marca, categoria, imagen } = producto;
+
+  const imagenAleatoria = `https://picsum.photos/seed/sazon-${id}/400/400`;
+
+  const alFallarImagen = (evento) => {
+    evento.currentTarget.onerror = null;
+    evento.currentTarget.src = imagenAleatoria;
+  };
 
   return (
     <article className="catalogo-producto-tarjeta">
       <figure className="catalogo-producto-tarjeta-figura">
         <img
           className="catalogo-producto-tarjeta-imagen"
-          src={imagen}
+          src={imagen || imagenAleatoria}
+          onError={alFallarImagen}
           alt={`${nombre} de la marca ${marca}`}
         />
         <figcaption className="catalogo-producto-tarjeta-categoria">
