@@ -238,3 +238,9 @@ a {
     padding: 0.8rem 0;
   }
 }
+
+.catalogo-vitrina-acciones {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}

@@ -1,33 +1,42 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ProductoTarjeta from "../../components/catalogo/ProductoTarjeta/ProductoTarjeta";
 import { productoServicio } from "../../services/productoServicio";
 
 const Producto = () => {
   const [productos, setProductos] = useState([]);
-  const [cargando, setCargando] = useState(true);
+  const [cargando, setCargando] = useState(false);
+  const [cargado, setCargado] = useState(false);
 
-  useEffect(() => {
-    productoServicio.listarTodos().then((datos) => {
-      setProductos(datos);
-      setCargando(false);
-    });
-  }, []);
-
-  if (cargando) {
-    return (
-      <div className="contenedor">
-        <p className="mensaje-estado">Cargando productos...</p>
-      </div>
-    );
-  }
+  const cargarProductos = async () => {
+    setCargando(true);
+    const datos = await productoServicio.listarTodos();
+    setProductos(datos);
+    setCargando(false);
+    setCargado(true);
+  };
 
   return (
     <div className="contenedor">
-      <section className="catalogo-vitrina">
-        {productos.map((producto) => (
-          <ProductoTarjeta key={producto.id} producto={producto} />
-        ))}
-      </section>
+      {!cargado && (
+        <div className="catalogo-vitrina-acciones">
+          <button
+            type="button"
+            className="btn btn-primario"
+            onClick={cargarProductos}
+            disabled={cargando}
+          >
+            {cargando ? "Cargando..." : "Cargar productos"}
+          </button>
+        </div>
+      )}
+
+      {cargado && (
+        <section className="catalogo-vitrina">
+          {productos.map((producto) => (
+            <ProductoTarjeta key={producto.id} producto={producto} />
+          ))}
+        </section>
+      )}
     </div>
   );
 };
